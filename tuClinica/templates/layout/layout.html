@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      {% load bootstrap4 %}
+    {% bootstrap_css %}
+    <style>
+    .h-screen{
+        height: 100vh;
+
+    }
+
+    </style>
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+  </head>
+  <body class="bg-secondary">
+
+    <div class="app d-flex flex-column h-screen justify-content-between" >
+
+            <header>
+            {% include "partials/navbar.html" %}
+            </header>
+            <main class="">
+
+                {% block content %} {% endblock %}
+
+            </main>
+
+            <footer class="bg-dark text-white py-3">
+                <div style="text-align: center;">
+                    <p>Derechos de autor</p>
+                </div>
+
+            </footer>
+
+</div>
+
+  </body>
+{% bootstrap_javascript jquery='full' %}
+</html>

@@ -1,0 +1,57 @@
+{% extends "layout/layout.html" %}
+
+{% block title %} Citas {% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-10 col-lg-10 mx-auto bg-light  py-3 px-3 shadow rounded">
+                <div class="d-flex justify-content-around align-items-center" style="text-align: center">
+                    <h1>Citas</h1>
+                    {% if request.user.is_authenticated %}
+                        <a class="btn btn-primary" href="{% url 'cita.create' %}">Ingresar un Cita</a>
+                    {% endif %}
+
+                </div>
+
+                <div class="list-group">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Paciente</th>
+                            <th scope="col">Medico</th>
+
+                            {% if request.user.is_authenticated %}
+                                <th style="text-align: center;" scope="col">Opcion</th>
+                            {% endif %}
+                        </tr>
+                        </thead>
+                        <hr>
+                        <tbody>
+                        {% for alumno in object_list %}
+                            <tr>
+                                <th scope="row">{{ cita.no_cita }}</th>
+                                <td>{{ cita.fecha }}</td>
+                                <td>{{ cita.paciente_dpi.nombre }}</td>
+                                <td>{{ cita.medico_licencia_medica.nombre }}</td>
+
+                                {% if request.user.is_authenticated %}
+                                    <td style="text-align: center;">
+                                        <a class="btn btn-info" href="{% url 'cita.edit' cita.id %}">Editar</a>
+                                        <a class="btn btn-danger" href="{% url 'cita.delete' cita.id %}">Eliminar</a>
+                                    </td>
+                                {% endif %}
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

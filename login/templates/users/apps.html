@@ -1,0 +1,63 @@
+{% extends "layout/layout.html" %}
+{% load static %}
+{% block title %} Aplicaciones {% endblock %}
+
+
+{% block content %}
+
+
+<style>
+        body{
+            background-image:  {% static '/img/work.png' %};
+            background-repeat: no-repeat;
+            background-size:100% 100vh;
+        }
+
+    </style>
+    <div class="container"style="opacity: 80%">
+        <div class="row">
+                <div class="list-group col-6">
+                    <div style="text-align: center;">
+                        <h1 class="display-3 text-black">Aplicaciones</h1>
+                    </div>
+{#                    <a href="{% url 'alumno.index' %}" class="list-group-item list-group-item-action mb-2 list-group-item-success ">#}
+{#                            <div style="text-align: center;">#}
+{#                                <h5 class="display-4">Alumnos</h5><br>#}
+{#                                <h3>Seccion de los citas</h3>#}
+{#                            </div>#}
+{#                        </a>#}
+{##}
+{#                    <a href="{% url 'grados.index' %}" class="list-group-item list-group-item-action mb-2 list-group-item-warning">#}
+{#                        <div style="text-align: center;">#}
+{#                            <h5 class="display-4">Grados</h5><br>#}
+{#                            <h3>Seccion de los grados</h3>#}
+{#                        </div>#}
+{##}
+{#                    </a>#}
+{##}
+{#                    <a href="{% url 'secciones.index' %}" class="list-group-item list-group-item-action mb-2 list-group-item-danger ">#}
+{#                        <div style="text-align: center;">#}
+{#                            <h5 class="display-4">Secciones</h5><br>#}
+{#                            <h3>Seccion de las secciones</h3>#}
+{#                        </div>#}
+{##}
+{#                        </a>#}
+{##}
+{#                    </div>#}
+{##}
+{#                    <div class="list-group col-6">#}
+{#                        <div style="text-align: center;">#}
+{#                            <h1 class="display-3">Servicios</h1>#}
+{#                        </div>#}
+{#                        <a href="{% url 'inscripciones.index' %}" class="list-group-item list-group-item-action mb-2 list-group-item-success ">#}
+{#                            <div style="text-align: center;">#}
+{#                                <h5 class="display-4">Inscripciones</h5><br>#}
+{#                                <h3>Seccion de para realizar inscripciones</h3>#}
+{#                            </div>#}
+{##}
+{#                        </a>#}
+{##}
+{#                    </div>#}
+            </div>
+        </div>
+{% endblock %}

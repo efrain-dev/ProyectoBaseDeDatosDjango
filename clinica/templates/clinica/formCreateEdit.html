@@ -1,0 +1,26 @@
+{% extends "layout/layout.html" %}
+{% load crispy_forms_tags %}
+{% block title %} Ingreso o Edicion{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-10 col-lg-8 mx-auto bg-light  py-3 px-3 shadow rounded">
+            <div class="" style="text-align: center">
+            <h1>Ingreso o Edicion</h1>
+            </div>
+           <div class="list-group">
+               <form class="bg-light  py-3 px-3 shadow rounded" method="post" >
+                   {% csrf_token %}{{ form|crispy}}
+               <div class="row" >
+                    <button type="submit" class="col-6 form-control btn btn-info">Guardar</button>
+                    <a href="{{ view.get_success_url }}" class="col-6 form-control btn btn-secondary">Cancel</a>
+               </div>
+               </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

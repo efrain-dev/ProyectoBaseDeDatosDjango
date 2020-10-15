@@ -1,0 +1,23 @@
+{% extends "layout/layout.html" %}
+
+{% block title %}Confirmacion{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-10 col-lg-8 mx-auto bg-light  py-3 px-3 shadow rounded">
+            <form method="post" style="text-align: center">
+                {% csrf_token %}
+                      <h3>Desea eliminar a {{object}}</h3>
+                    <div class="button-group">
+                    <button class="btn btn-success" name="button" type="submit">Confirmar</button>
+                    <a href="{{ view.get_success_url }}" class="btn btn-danger">Cancel</a>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

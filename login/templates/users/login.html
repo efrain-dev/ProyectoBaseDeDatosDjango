@@ -1,0 +1,21 @@
+{% extends 'layout/layout.html' %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-10 col-lg-6 mx-auto bg-light  py-3 px-3 shadow rounded">
+            <h1>Iniciar sesión</h1>
+            <form method="POST">
+                {{ form|crispy }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success form-control">Login</button>
+            </form>
+            <hr />
+            <a href="/register" class="btn btn-secondary form-control">Registrar usuario</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -52,7 +52,7 @@ class ClinicaList(ListView):
 class ClinicaCreate(LoginRequiredMixin, CreateView):
     login_url = 'login'
     model = models.Clinica
-    form_class = forms.ClinicaForm
+    form_class = forms.ClinicaForm()
     template_name = 'clinica/formCreateEdit.html'
     success_url = reverse_lazy('clinica.index')
 
@@ -77,106 +77,186 @@ class ClinicaDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('clinica.index')
     login_url = 'login'
 
-# # -------------------Seccion de Grado-------------------
-#
-# class GradoList(ListView):
-#     model = models.Grado
-#     template_name = 'grados/index.html'
-#
-#
-# class GradoCreate(LoginRequiredMixin, CreateView):
-#     model = models.Grado
-#     form_class = forms.GradoForm
-#     template_name = 'clinica/formCreateEdit.html'
-#     success_url = reverse_lazy('grados.index')
-#     login_url = 'login'
-#
-#     def get_success_url(self):
-#         return reverse_lazy('grados.index')
-#
-#
-# class GradoUpdate(LoginRequiredMixin, UpdateView):
-#     model = models.Grado
-#     form_class = forms.GradoForm
-#     template_name = 'clinica/formCreateEdit.html'
-#     success_url = reverse_lazy('grados.index')
-#     login_url = 'login'
-#
-#     def get_success_url(self):
-#         return reverse_lazy('grados.index')
-#
-#
-# class GradoDelete(LoginRequiredMixin, DeleteView):
-#     model = models.Grado
-#     template_name = 'clinica/clinica_confirm_delete.html'
-#     success_url = reverse_lazy('grados.index')
-#     login_url = 'login'
-#
-# # -------------------Seccion de Secciones-------------------
-# class SeccionList(ListView):
-#     model = models.Seccion
-#     template_name = 'secciones/index.html'
-#
-#
-# class SeccionCreate(LoginRequiredMixin, CreateView):
-#     model = models.Seccion
-#     form_class = forms.SeccionForm
-#     template_name = 'clinica/formCreateEdit.html'
-#     success_url = reverse_lazy('secciones.index')
-#     login_url = 'login'
-#
-#     def get_success_url(self):
-#         return reverse_lazy('secciones.index')
-#
-#
-# class SeccionUpdate(LoginRequiredMixin, UpdateView):
-#     model = models.Seccion
-#     form_class = forms.SeccionForm
-#     template_name = 'clinica/formCreateEdit.html'
-#     success_url = reverse_lazy('secciones.index')
-#     login_url = 'login'
-#
-#     def get_success_url(self):
-#         return reverse_lazy('secciones.index')
-#
-#
-# class SeccionDelete(LoginRequiredMixin, DeleteView):
-#     model = models.Seccion
-#     template_name = 'clinica/clinica_confirm_delete.html'
-#     success_url = reverse_lazy('secciones.index')
-#     login_url = 'login'
-#
-#
-# # -------------------Seccion de Inscripciones-------------------
-# class InscripcionList(ListView):
-#     model = models.Inscripciones
-#     template_name = 'inscripciones/index.html'
-#
-#
-# class InscripcionCreate(LoginRequiredMixin, CreateView):
-#     model = models.Inscripciones
-#     form_class = forms.InscripcionForm
-#     template_name = 'clinica/formCreateEdit.html'
-#     success_url = reverse_lazy('inscripciones.index')
-#     login_url = 'login'
-#
-#     def get_success_url(self):
-#         return reverse_lazy('inscripciones.index')
-#
-#
-# class InscripcionUpdate(LoginRequiredMixin, UpdateView):
-#     model = models.Inscripciones
-#     form_class = forms.InscripcionForm
-#     template_name = 'clinica/formCreateEdit.html'
-#     success_url = reverse_lazy('inscripciones.index')
-#     login_url = 'login'
-#
-#     def get_success_url(self):
-#         return reverse_lazy('inscripciones.index')
-#
-#
-# class InscripcionDelete(LoginRequiredMixin, DeleteView):
-#     model = models.Inscripciones
-#     template_name = 'clinica/clinica_confirm_delete.html'
-#     success_url = reverse_lazy('inscripciones.index')
-#     login_url = 'login'
+# # -------------------Paciente-------------------
+
+class PacienteList(ListView):
+    model = models.Paciente
+    template_name = 'paciente/index.html'
+    login_url = 'login'
+
+
+class PacienteCreate(LoginRequiredMixin, CreateView):
+    login_url = 'login'
+    model = models.Paciente
+    form_class = forms.PacienteForm
+    template_name = 'clinica/formCreateEdit.html'
+    success_url = reverse_lazy('paciente.index')
+
+    def get_success_url(self):
+        return reverse_lazy('paciente.index')
+
+
+class PacienteUpdate(LoginRequiredMixin, UpdateView):
+    model = models.Paciente
+    form_class = forms.PacienteForm
+    template_name = 'clinica/formCreateEdit.html'
+    success_url = reverse_lazy('paciente.index')
+    login_url = 'login'
+
+    def get_success_url(self):
+        return reverse_lazy('paciente.index')
+
+
+class PacienteDelete(LoginRequiredMixin, DeleteView):
+    model = models.Paciente
+    template_name = 'clinica/clinica_confirm_delete.html'
+    success_url = reverse_lazy('paciente.index')
+    login_url = 'login'
+
+
+# # -------------------Medico-------------------
+
+class MedicoList(ListView):
+    model = models.Medico
+    template_name = 'medico/index.html'
+    login_url = 'login'
+
+
+class MedicoCreate(LoginRequiredMixin, CreateView):
+    login_url = 'login'
+    model = models.Medico
+    form_class = forms.MedicoForm
+    template_name = 'clinica/formCreateEdit.html'
+    success_url = reverse_lazy('medico.index')
+
+    def get_success_url(self):
+        return reverse_lazy('medico.index')
+
+
+class MedicoUpdate(LoginRequiredMixin, UpdateView):
+    model = models.Medico
+    form_class = forms.MedicoForm
+    template_name = 'clinica/formCreateEdit.html'
+    success_url = reverse_lazy('medico.index')
+    login_url = 'login'
+
+    def get_success_url(self):
+        return reverse_lazy('medico.index')
+
+
+class MedicoDelete(LoginRequiredMixin, DeleteView):
+    model = models.Medico
+    template_name = 'clinica/clinica_confirm_delete.html'
+    success_url = reverse_lazy('medico.index')
+    login_url = 'login'
+
+
+# # -------------------Historial-------------------
+
+class HistorialMedicoList(ListView):
+    model = models.HistorialMedico
+    template_name = 'historial_medico/index.html'
+    login_url = 'login'
+
+
+class HistorialMedicoCreate(LoginRequiredMixin, CreateView):
+    login_url = 'login'
+    model = models.HistorialMedico
+    form_class = forms.HistorialMedicoForm
+    template_name = 'clinica/formCreateEdit.html'
+    success_url = reverse_lazy('historial-medico.index')
+
+    def get_success_url(self):
+        return reverse_lazy('historial-medico.index')
+
+
+class HistorialMedicoUpdate(LoginRequiredMixin, UpdateView):
+    model = models.HistorialMedico
+    form_class = forms.HistorialMedicoForm
+    template_name = 'clinica/formCreateEdit.html'
+    success_url = reverse_lazy('historial-medico.index')
+    login_url = 'login'
+
+    def get_success_url(self):
+        return reverse_lazy('historial-medico.index')
+
+
+class HistorialMedicoDelete(LoginRequiredMixin, DeleteView):
+    model = models.HistorialMedico
+    template_name = 'clinica/clinica_confirm_delete.html'
+    success_url = reverse_lazy('historial-medico.index')
+    login_url = 'login'
+
+
+# # -------------------Diagnostico-------------------
+
+class DiagnosticoList(ListView):
+    model = models.Diagnostico
+    template_name = 'diagnostico/index.html'
+    login_url = 'login'
+
+
+class DiagnosticoCreate(LoginRequiredMixin, CreateView):
+    login_url = 'login'
+    model = models.Diagnostico
+    form_class = forms.DiagnosticoForm
+    template_name = 'clinica/formCreateEdit.html'
+    success_url = reverse_lazy('diagnostico.index')
+
+    def get_success_url(self):
+        return reverse_lazy('diagnostico.index')
+
+
+class DiagnosticoUpdate(LoginRequiredMixin, UpdateView):
+    model = models.Diagnostico
+    form_class = forms.DiagnosticoForm
+    template_name = 'clinica/formCreateEdit.html'
+    success_url = reverse_lazy('diagnostico.index')
+    login_url = 'login'
+
+    def get_success_url(self):
+        return reverse_lazy('diagnostico.index')
+
+
+class DiagnosticoDelete(LoginRequiredMixin, DeleteView):
+    model = models.Diagnostico
+    template_name = 'clinica/clinica_confirm_delete.html'
+    success_url = reverse_lazy('diagnostico.index')
+    login_url = 'login'
+
+
+# # -------------------Tratamiento-------------------
+
+class TratamientoList(ListView):
+    model = models.Tratamiento
+    template_name = 'tratamiento/index.html'
+    login_url = 'login'
+
+
+class TratamientoCreate(LoginRequiredMixin, CreateView):
+    login_url = 'login'
+    model = models.Tratamiento
+    form_class = forms.TratamientoForm
+    template_name = 'clinica/formCreateEdit.html'
+    success_url = reverse_lazy('tratamiento.index')
+
+    def get_success_url(self):
+        return reverse_lazy('tratamiento.index')
+
+
+class TratamientoUpdate(LoginRequiredMixin, UpdateView):
+    model = models.Tratamiento
+    form_class = forms.TratamientoForm
+    template_name = 'clinica/formCreateEdit.html'
+    success_url = reverse_lazy('tratamiento.index')
+    login_url = 'login'
+
+    def get_success_url(self):
+        return reverse_lazy('tratamiento.index')
+
+
+class TratamientoDelete(LoginRequiredMixin, DeleteView):
+    model = models.Tratamiento
+    template_name = 'clinica/clinica_confirm_delete.html'
+    success_url = reverse_lazy('tratamiento.index')
+    login_url = 'login'

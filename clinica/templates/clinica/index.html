@@ -38,13 +38,12 @@
                                 <td>{{ clinica.no_patente }}</td>
                                 <td>{{ clinica.nombre }}</td>
                                 <td>{{ clinica.direccion }}</td>
-                                <td>{{ clinica.nombre }}</td>
                                 <td>{{ clinica.auth_user.first_name }}</td>
 
-                                {% if request.auth_user.is_authenticated %}
+                            {% if request.user.is_authenticated %}
                                     <td style="text-align: center;">
-                                        <a class="btn btn-info" href="{% url 'clinica.edit' clinica.id %}">Editar</a>
-                                        <a class="btn btn-danger" href="{% url 'clinica.delete' clinica.id %}">Eliminar</a>
+                                        <a class="btn btn-info" href="{% url 'clinica.edit' clinica.id_clinica %}">Editar</a>
+                                        <a class="btn btn-danger" href="{% url 'clinica.delete' clinica.id_clinica %}">Eliminar</a>
                                     </td>
                                 {% endif %}
 

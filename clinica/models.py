@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 
 class Cita(models.Model):
     no_cita = models.AutoField(primary_key=True)
-    fecha = models.DateField(blank=True, null=True)
+    fecha = models.DateField("Fecha")
     paciente_dpi = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='paciente_dpi')
     medico_licencia_medica = models.ForeignKey('Medico', models.DO_NOTHING, db_column='medico_licencia_medica')
 
@@ -19,25 +19,29 @@ class Cita(models.Model):
         managed = False
         db_table = 'cita'
 
+    def __str__(self):
+        return '%s %s (%s)' % (self.no_cita ,self.fecha,self.paciente_dpi.nombre)
 
 class Clinica(models.Model):
     id_clinica = models.AutoField(primary_key=True)
-    no_patente = models.CharField(max_length=40, blank=True, null=True)
-    nombre = models.CharField(max_length=60, blank=True, null=True)
-    direccion = models.CharField(max_length=40, blank=True, null=True)
+    no_patente = models.CharField(max_length=40, blank=False, null=False)
+    nombre = models.CharField(max_length=60, blank=True, null=False)
+    direccion = models.CharField(max_length=40, blank=True, null=False)
     auth_user = models.ForeignKey(User, models.DO_NOTHING)
 
     class Meta:
         managed = False
         db_table = 'clinica'
 
+    def __str__(self):
+        return '%s' % self.nombre
+
 
 class Diagnostico(models.Model):
     id_diagnostico = models.AutoField(primary_key=True)
     evaluacion_inicial = models.CharField(max_length=80, blank=True, null=True)
     evaluacion_final = models.CharField(max_length=80, blank=True, null=True)
-    tratamiento_id_tratamiento = models.ForeignKey('Tratamiento', models.DO_NOTHING,
-                                                   db_column='tratamiento_id_tratamiento')
+    tratamiento_id_tratamiento = models.ForeignKey('Tratamiento', models.DO_NOTHING, db_column='tratamiento_id_tratamiento', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -64,6 +68,9 @@ class Medico(models.Model):
         managed = False
         db_table = 'medico'
 
+    def __str__(self):
+        return '%s' % self.nombre
+
 
 class Paciente(models.Model):
     dpi = models.CharField(primary_key=True, max_length=20)
@@ -74,6 +81,9 @@ class Paciente(models.Model):
     class Meta:
         managed = False
         db_table = 'paciente'
+
+    def __str__(self):
+        return '%s' % self.nombre
 
 
 class TelefonoClinica(models.Model):

@@ -1,9 +1,12 @@
 from django import forms
+import datetime
 
 from clinica import models
 
 
 class CitaForm(forms.ModelForm):
+    fecha = forms.DateField(initial=datetime.date.today)
+
     class Meta:
         model = models.Cita
         fields = "__all__"
@@ -13,7 +16,7 @@ class ClinicaForm(forms.ModelForm):
 
     class Meta:
         model = models.Clinica
-        fields = ('__all__')
+        fields = ('nombre','no_patente','direccion',)
 
 
 

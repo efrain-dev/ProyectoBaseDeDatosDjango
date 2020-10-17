@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="https://docs.djangoproject.com/en/3.0/">Django</a>
+    <a class="navbar-brand" href="https://docs.djangoproject.com/en/3.0/">Clinica</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -17,8 +17,15 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{% url 'clinica.index' %}">Clinica</a>
                     <a class="dropdown-item" href="{% url 'cita.index' %}">Citas</a>
-                    {#      <a class="dropdown-item" href="{% url 'secciones.index' %}">Secciones</a>#}
-                    {#      <a class="dropdown-item" href="{% url 'inscripciones.index' %}">Inscripciones</a>#}
+                    <a class="dropdown-item" href="{% url 'paciente.index' %}">Pacientes</a>
+                    <a class="dropdown-item" href="{% url 'medico.index' %}">Medicos</a>
+                    <a class="dropdown-item" href="{% url 'historial-medico.index' %}">Historial Medico</a>
+                    <a class="dropdown-item" href="{% url 'diagnostico.index' %}">Diagnostico</a>
+                    <a class="dropdown-item" href="{% url 'tratamiento.index' %}">Tratamiento</a>
+
+
+
+                    {#      <a class="dropdown-item" href="{% url 'medico.index' %}">Inscripciones</a>#}
 
                 </div>
             </li>
